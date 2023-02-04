@@ -1,0 +1,27 @@
+{
+	"name": "@unshelled-task/backend",
+	"version": "0.1.0",
+	"description": "",
+	"main": "index.js",
+  	"type": "module",
+	"engines": {
+	  "node": ">=14 <15"
+	},
+	"scripts": {
+	  "start": "node index.js",
+	  "clean": "rm -rf coverage build tmp"
+	},
+	"author": "Abednego Edet <ever.asap@gmail.com>",
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"jsonwebtoken": "^9.0.0",
+		"mongoose": "^6.8.3"
+	  },
+	  "devDependencies": {}
+  }
+  
