@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from 'react-router-dom';
 
 function useNavigator() {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ function useNavigator() {
     const targetUrl = preserveQs ? url + search : url;
     navigate(targetUrl, { replace });
 
-    window.scrollTo({ behavior: "smooth", top: 0 });
+    window.scrollTo({ behavior: 'smooth', top: 0 });
   };
 }
 

@@ -1,11 +1,5 @@
-import axios from "axios";
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState
-} from "react";
+import axios from 'axios';
+import React, { createContext, useContext, useEffect, useReducer, useState } from 'react';
 
 const initialState = {
   error: null
@@ -18,27 +12,27 @@ export function useAuth() {
 }
 const AuthReducer = (state, action) => {
   switch (action.type) {
-    case "loginStart":
+    case 'loginStart':
       return {
         error: null
       };
-    case "loginSuccess":
+    case 'loginSuccess':
       return {
         error: null
       };
-    case "signupStart":
+    case 'signupStart':
       return {
         error: null
       };
-    case "signupSuccess":
+    case 'signupSuccess':
       return {
         error: null
       };
-    case "actionFailure":
+    case 'actionFailure':
       return {
         error: action.payload
       };
-    case "logout":
+    case 'logout':
       return {
         error: null
       };
@@ -47,7 +41,7 @@ const AuthReducer = (state, action) => {
   }
 };
 
-export function UserContextProvider({children}) {
+export function UserContextProvider({ children }) {
   const stateAndDispatch = useReducer(AuthReducer, initialState);
   const [state, dispatch] = stateAndDispatch;
   const [user, setUser] = useState(null);
@@ -55,7 +49,7 @@ export function UserContextProvider({children}) {
 
   useEffect(() => {
     if (!user) {
-      axios.get('/profile').then(({data}) => {
+      axios.get('/profile').then(({ data }) => {
         setUser(data);
         setReady(true);
       });
@@ -63,7 +57,7 @@ export function UserContextProvider({children}) {
   }, []);
 
   return (
-    <UserContext.Provider value={{user, setUser, ready, error: state.error, dispatch}}>
+    <UserContext.Provider value={{ user, setUser, ready, error: state.error, dispatch }}>
       {children}
     </UserContext.Provider>
   );

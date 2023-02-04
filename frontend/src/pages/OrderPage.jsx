@@ -1,8 +1,8 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import NotFound from "../components/NotFound";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import NotFound from '../components/NotFound';
 
 export default function OrderPage() {
   const { id } = useParams();
@@ -12,7 +12,7 @@ export default function OrderPage() {
 
   useEffect(() => {
     if (id) {
-      axios.get("/order_item/" + id).then((response) => {
+      axios.get('/order_item/' + id).then((response) => {
         setOrder(response.data);
       });
     }

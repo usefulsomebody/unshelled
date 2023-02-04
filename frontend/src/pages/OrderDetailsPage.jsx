@@ -1,10 +1,10 @@
-import React from "react";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import OrderListItem from "../components/OrderListItem";
+import React from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import OrderListItem from '../components/OrderListItem';
 
-import AccountNav from "../components/AccountNav";
+import AccountNav from '../components/AccountNav';
 
 export default function OrderDetailsPage() {
   const [orders, setOrders] = useState([]);
@@ -32,10 +32,10 @@ export default function OrderDetailsPage() {
     setLoading(true);
     try {
       await axios.delete(`/order_items/${id}`, {
-        withCredentials: true,
+        withCredentials: true
       });
       setOrders(orders.filter((item) => item.id !== id));
-      toast.success("Order successfully deleted");
+      toast.success('Order successfully deleted');
       setLoading(false);
     } catch (err) {
       toast.error(err.response.data.message);
@@ -55,7 +55,7 @@ export default function OrderDetailsPage() {
             </div>
             <div className="flex-orders-inner">
               {error ? (
-                "Something went wrong!"
+                'Something went wrong!'
               ) : loading ? (
                 <>
                   <div className="placeload-wrapper">
@@ -98,10 +98,7 @@ export default function OrderDetailsPage() {
                 <>
                   {orders.map((order, index) => (
                     <div key={index}>
-                      <OrderListItem
-                        order={order}
-                        handleDelete={() => handleDelete(order.id)}
-                      />
+                      <OrderListItem order={order} handleDelete={() => handleDelete(order.id)} />
                     </div>
                   ))}
                 </>

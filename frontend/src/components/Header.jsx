@@ -1,28 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useAuth } from "../contexts/userContext";
-import axios from "axios";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/userContext';
+import axios from 'axios';
 
 export default function Header() {
   const { user, setUser } = useAuth();
 
   async function logout() {
-    await axios.post("/logout");
+    await axios.post('/logout');
     setUser(null);
   }
   return (
     <header className="flex justify-between">
-      <Link to={"/"} className="flex items-center gap-1">
-        <img
-          src="https://unshelled.org/images/logo/Unshelled.png"
-          alt=""
-          width="120"
-        />
+      <Link to={'/'} className="flex items-center gap-1">
+        <img src="https://unshelled.org/images/logo/Unshelled.png" alt="" width="120" />
       </Link>
       <Link
-        to={user ? "/account" : "/login"}
-        className="flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 "
-      >
+        to={user ? '/account' : '/login'}
+        className="flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 ">
         {user ? (
           <div onClick={logout}>
             <svg
@@ -33,8 +28,7 @@ export default function Header() {
               strokeWidth="2"
               fill="none"
               strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+              strokeLinejoin="round">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
               <polyline points="16 17 21 12 16 7"></polyline>
               <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -47,8 +41,7 @@ export default function Header() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
-          >
+            className="w-6 h-6">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -61,8 +54,7 @@ export default function Header() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="w-6 h-6 relative top-1"
-          >
+            className="w-6 h-6 relative top-1">
             <path
               fillRule="evenodd"
               d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"

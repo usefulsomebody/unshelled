@@ -1,36 +1,36 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import toast from "react-hot-toast";
-import { useAuth } from "../contexts/userContext.jsx";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useAuth } from '../contexts/userContext.jsx';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const [sellerId, setSellerId] = useState("");
+  const [sellerId, setSellerId] = useState('');
   const [isError, setIsError] = useState(false);
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState('');
   const { error, dispatch, setUser } = useAuth();
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
-    dispatch({ type: "loginStart" });
+    dispatch({ type: 'loginStart' });
     try {
-      const { data } = await axios.post("/login", {
+      const { data } = await axios.post('/login', {
         seller_id: sellerId,
-        password,
+        password
       });
       setUser(data);
-      toast.success("Login successful");
-      navigate("/");
-      dispatch({ type: "loginSuccess", payload: data });
+      toast.success('Login successful');
+      navigate('/');
+      dispatch({ type: 'loginSuccess', payload: data });
     } catch (err) {
       setIsError(true);
-      dispatch({ type: "actionFailure", payload: err.response?.data });
+      dispatch({ type: 'actionFailure', payload: err.response?.data });
       return [];
     }
   }
 
-  const formDisabled = sellerId === "" || password === "";
+  const formDisabled = sellerId === '' || password === '';
 
   useEffect(() => {
     // show error message if there is any
@@ -66,8 +66,7 @@ export default function LoginPage() {
           />
           <button
             className="primary bg-orange-500 hover:bg-orange-600 mt-4"
-            disabled={formDisabled}
-          >
+            disabled={formDisabled}>
             Login
           </button>
         </form>

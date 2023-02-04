@@ -1,8 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import axios from "axios";
-import toast from "react-hot-toast";
-import { useAuth } from "../contexts/userContext";
+import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useAuth } from '../contexts/userContext';
 
 export default function EditUserWidget() {
   const { user, setUser } = useAuth();
@@ -12,13 +12,13 @@ export default function EditUserWidget() {
   async function updateSellerAction(ev) {
     ev.preventDefault();
     try {
-      const response = await axios.put("/account", {
+      const response = await axios.put('/account', {
         seller_city: city,
-        seller_state: state,
+        seller_state: state
       });
-        setUser(response.data);
+      setUser(response.data);
       console.log(user);
-      toast.success("Account updated");
+      toast.success('Account updated');
     } catch (err) {
       toast.error(err.message);
       return [];
@@ -30,7 +30,7 @@ export default function EditUserWidget() {
       <div className="bg-white shadow p-4 rounded-2xl">
         <div className="border rounded-2xl mt-4">
           <div className="flex">
-            <div className="py-3 px-4" style={{ width: 50 + "%" }}>
+            <div className="py-3 px-4" style={{ width: 50 + '%' }}>
               <label>City</label>
               <input
                 type="text"
@@ -42,7 +42,7 @@ export default function EditUserWidget() {
                 onChange={(ev) => setCity(ev.target.value)}
               />
             </div>
-            <div className="py-3 px-4 border-l" style={{ width: 50 + "%" }}>
+            <div className="py-3 px-4 border-l" style={{ width: 50 + '%' }}>
               <label>State</label>
               <input
                 type="text"

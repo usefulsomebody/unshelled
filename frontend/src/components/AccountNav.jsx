@@ -1,11 +1,11 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function AccountNav() {
   const activeClassName = ({ isActive }) =>
     isActive
-      ? "inline-flex gap-1 py-2 px-6 rounded-full bg-primary text-white"
-      : "inline-flex gap-1 py-2 px-6 rounded-full bg-gray-200";
+      ? 'inline-flex gap-1 py-2 px-6 rounded-full bg-primary text-white'
+      : 'inline-flex gap-1 py-2 px-6 rounded-full bg-gray-200';
 
   return (
     <nav className="w-full flex justify-center mt-8 gap-2 mb-8">
@@ -16,8 +16,7 @@ export default function AccountNav() {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6"
-        >
+          className="w-6 h-6">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -33,8 +32,7 @@ export default function AccountNav() {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6"
-        >
+          className="w-6 h-6">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
