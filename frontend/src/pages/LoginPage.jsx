@@ -1,4 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -21,7 +22,7 @@ export default function LoginPage() {
       setUser(data);
       toast.success("Login successful");
       navigate("/");
-      dispatch({ type: "loginSuccess", payload: res.data.details });
+      dispatch({ type: "loginSuccess", payload: data });
     } catch (err) {
       setIsError(true);
       dispatch({ type: "actionFailure", payload: err.response?.data });

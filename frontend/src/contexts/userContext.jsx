@@ -1,13 +1,11 @@
 import axios from "axios";
 import React, {
   createContext,
-  ReactNode,
   useContext,
   useEffect,
   useReducer,
   useState
 } from "react";
-import {data} from "autoprefixer";
 
 const initialState = {
   error: null
@@ -52,16 +50,8 @@ const AuthReducer = (state, action) => {
 export function UserContextProvider({children}) {
   const stateAndDispatch = useReducer(AuthReducer, initialState);
   const [state, dispatch] = stateAndDispatch;
-  const [user,setUser] = useState(null);
-  const [ready,setReady] = useState(false);
-
-//   const login = async payload => {
-//     const res = await axios.post(`${API_URL}/auth/login`, payload, {
-//       withCredentials: true
-//     });
-
-//     setUser(res.data);
-//   }; 
+  const [user, setUser] = useState(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     if (!user) {

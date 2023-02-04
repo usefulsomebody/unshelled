@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -10,15 +11,13 @@ export default function OrderDetailsPage() {
   const [error, setError] = useState(false);
 
   const [loading, setLoading] = useState(false);
-  const fetchOrders = async (id) => {
+  const fetchOrders = async () => {
     setLoading(true);
     try {
-      await axios
-        .get(`/order_items`)
-        .then((res) => {
-          setOrders(res.data.orders[0].data);
-          setLoading(false);
-        });
+      await axios.get(`/order_items`).then((res) => {
+        setOrders(res.data.orders[0].data);
+        setLoading(false);
+      });
     } catch (err) {
       setLoading(false);
       setError(true);
@@ -26,7 +25,7 @@ export default function OrderDetailsPage() {
     }
   };
   useEffect(() => {
-    fetchOrders(); 
+    fetchOrders();
   }, []);
 
   const handleDelete = async (id) => {
@@ -107,11 +106,11 @@ export default function OrderDetailsPage() {
                   ))}
                 </>
               ) : (
-				<div className="mt-4 grow flex items-center justify-around">
-      				<div className="mb-64">
-					<h1 className="text-center my-4">No Order to show!</h1>
-					<p>Currently the order table is empty</p>
-					</div>
+                <div className="mt-4 grow flex items-center justify-around">
+                  <div className="mb-64">
+                    <h1 className="text-center my-4">No Order to show!</h1>
+                    <p>Currently the order table is empty</p>
+                  </div>
                 </div>
               )}
             </div>

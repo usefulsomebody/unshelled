@@ -1,12 +1,10 @@
-import {useState} from "react";
+import React from "react";
 import {useAuth} from "../contexts/userContext.jsx";
-import {Link, Navigate, useParams} from "react-router-dom";
-import axios from "axios";
 import AccountNav from "../components/AccountNav";
 import EditUserWidget from "../components/EditUserWidget";
 
 export default function AccountPage() {
-  const {ready, user, setUser} = useAuth();
+  const {ready, user} = useAuth();
   
   if (!ready) {
     return 'Loading...';
