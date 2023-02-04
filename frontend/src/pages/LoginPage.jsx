@@ -15,7 +15,7 @@ export default function LoginPage() {
     ev.preventDefault();
     dispatch({ type: 'loginStart' });
     try {
-      const { data } = await axios.post('/login', {
+      const { data } = await axios.post('/account/login', {
         seller_id: sellerId,
         password
       });

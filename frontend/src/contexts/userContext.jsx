@@ -49,7 +49,7 @@ export function UserContextProvider({ children }) {
 
   useEffect(() => {
     if (!user) {
-      axios.get('/profile').then(({ data }) => {
+      axios.get('/account/fetch').then(({ data }) => {
         setUser(data);
         setReady(true);
       });

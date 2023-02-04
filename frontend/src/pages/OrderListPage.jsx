@@ -6,7 +6,7 @@ import OrderListItem from '../components/OrderListItem';
 
 import AccountNav from '../components/AccountNav';
 
-export default function OrderDetailsPage() {
+export default function OrderListPage() {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(false);
 
@@ -31,7 +31,7 @@ export default function OrderDetailsPage() {
   const handleDelete = async (id) => {
     setLoading(true);
     try {
-      await axios.delete(`/order_items/${id}`, {
+      await axios.delete(`/order_items/`+id, {
         withCredentials: true
       });
       setOrders(orders.filter((item) => item.id !== id));

@@ -17,7 +17,6 @@ export default function EditUserWidget() {
         seller_state: state
       });
       setUser(response.data);
-      console.log(user);
       toast.success('Account updated');
     } catch (err) {
       toast.error(err.message);

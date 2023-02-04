@@ -9,10 +9,9 @@ import { verifySeller } from '../utils/verifyToken.js';
 
 const router = Router();
 
-router.get('/order_items', fetchOrders);
-router.get('/:id/order_items', fetchOrders);
-router.get('/order_item/:id', getOrder);
-router.put('/:id/update', verifySeller, updateOrder);
-router.delete('/:id/delete', verifySeller, deleteOrder);
+router.get('/', fetchOrders);
+router.get('/:id', getOrder);
+router.put('/:id', verifySeller, updateOrder);
+router.delete('/:id', verifySeller, deleteOrder);
 
 export default router;

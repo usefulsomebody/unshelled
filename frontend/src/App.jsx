@@ -9,7 +9,7 @@ import { UserContextProvider } from './contexts/userContext';
 import AuthRoute from './components/AuthRoute';
 import ProtectedRoute from './components/ProtectedRoute';
 import AccountPage from './pages/AccountPage.jsx';
-import OrderDetailsPage from './pages/OrderDetailsPage';
+import OrderListPage from './pages/OrderListPage';
 import OrderPage from './pages/OrderPage';
 import NotFound from './components/NotFound';
 
@@ -25,7 +25,7 @@ function App() {
             <Route index element={<LoginPage />} />
           </Route>
           <Route path="/" element={<ProtectedRoute />}>
-            <Route index element={<OrderDetailsPage />} />
+            <Route index element={<OrderListPage />} />
             <Route path="/orders/:id" element={<OrderPage />} />
             <Route path="/account" element={<AccountPage />} />
           </Route>

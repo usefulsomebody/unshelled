@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import NotFound from '../components/NotFound';
 
 export default function OrderPage() {
@@ -12,7 +13,7 @@ export default function OrderPage() {
 
   useEffect(() => {
     if (id) {
-      axios.get('/order_item/' + id).then((response) => {
+      axios.get('/order_items/' + id).then((response) => {
         setOrder(response.data);
       });
     }
@@ -20,6 +21,21 @@ export default function OrderPage() {
 
   if (!order) {
     return <NotFound />;
+  }
+
+  async function updateOrderAction(ev) {
+    ev.preventDefault();
+    try {
+      const response = await axios.put('/order_items/'+id, {
+        price,
+        freight_value: freightValue
+      });
+      setOrder(response.data);
+      toast.success('Order updated');
+    } catch (err) {
+      toast.error(err.message);
+      return [];
+    }
   }
 
   return (
@@ -32,7 +48,7 @@ export default function OrderPage() {
         </div>
         {/* Product Item list here */}
       </div>
-      <form>
+      <form onSubmit={updateOrderAction}>
         <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
           <div>
             <h3 className="mt-2 -mb-1">Price</h3>

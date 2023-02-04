@@ -40,8 +40,8 @@ app.get('/status', (req, res) => {
   res.json('We up! 🚀');
 });
 
-app.use('/', authRoute);
-app.use('/', orderRoute);
+app.use('/account', authRoute);
+app.use('/order_items', orderRoute);
 
 app.post('/logout', (req, res) => {
   res.cookie('token', '').json(true);
