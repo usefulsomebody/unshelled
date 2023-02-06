@@ -1,24 +1,34 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
+
+import Loader from '../components/Loader';
 import NotFound from '../components/NotFound';
 
 export default function OrderPage() {
+  const dataFetchedRef = useRef(false);
   const { id } = useParams();
   const [order, setOrder] = useState(null);
-  const [price, setPrice] = useState(order?.price);
-  const [freightValue, setFreightValue] = useState(order?.freight_value);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
     if (id) {
       axios.get('/order_items/' + id).then((response) => {
         setOrder(response.data);
+        setLoading(false);
       });
     }
   }, [id]);
 
+  const [price, setPrice] = useState(order?.price);
+  const [freightValue, setFreightValue] = useState(order?.freight_value);
+
+  if (loading) {
+    return <Loader />;
+  }
   if (!order) {
     return <NotFound />;
   }
@@ -26,11 +36,19 @@ export default function OrderPage() {
   async function updateOrderAction(ev) {
     ev.preventDefault();
     try {
-      const response = await axios.put('/order_items/'+id, {
+      const response = await axios.put('/order_items/' + id, {
         price,
         freight_value: freightValue
       });
-      setOrder(response.data);
+      const updateOrder = {
+        price: response.data.price,
+        freight_value: response.data.freight_value,
+        order_id: order.order_id,
+        shipping_limit_date: order.shipping_limit_date,
+        seller_id: order.seller_id
+      };
+      setOrder(updateOrder);
+
       toast.success('Order updated');
     } catch (err) {
       toast.error(err.message);
@@ -53,7 +71,7 @@ export default function OrderPage() {
           <div>
             <h3 className="mt-2 -mb-1">Price</h3>
             <input
-              type="text"
+              type="number"
               value={price}
               onChange={(ev) => setPrice(ev.target.value)}
               placeholder="100.00"

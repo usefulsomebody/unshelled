@@ -965,6 +965,11 @@ bson@^4.7.0:
   dependencies:
     buffer "^5.6.0"
 
+bson@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-5.0.0.tgz#32b3d10b55be5c7d698cf311b7232a88498efb7d"
+  integrity sha512-EL2KpZdyhshyyptj6pnQfnFKPoncD9KwZYvgmj/FXQiOUU1HWTHWmBOP4TZXU3YzStcI5qgpIl68YnMo16s26A==
+
 buffer-equal-constant-time@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz#f8e71132f7ffe6e01a5c9697a4c6f3e48d5cc819"
@@ -2040,7 +2045,7 @@ minimist@^1.2.0, minimist@^1.2.6:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
   integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
-mongodb-connection-string-url@^2.5.4:
+mongodb-connection-string-url@^2.5.4, mongodb-connection-string-url@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/mongodb-connection-string-url/-/mongodb-connection-string-url-2.6.0.tgz#57901bf352372abdde812c81be47b75c6b2ec5cf"
   integrity sha512-WvTZlI9ab0QYtTYnuMLgobULWhokRjtC7db9LtcVfJ+Hsnyr5eo6ZtNAt3Ly24XZScGMelOcGtm7lSn0332tPQ==
@@ -2058,6 +2063,17 @@ mongodb@4.12.1:
     socks "^2.7.1"
   optionalDependencies:
     "@aws-sdk/credential-providers" "^3.186.0"
+    saslprep "^1.0.3"
+
+mongodb@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-5.0.0.tgz#463f45244e9e36068d64bf80b835db3e2bf74893"
+  integrity sha512-WHmlbefKp/iAX2LlSZ56iKt4pRftib/dD3mDaji8R7IJcRoKPc5+/kSn3mIBxKPLVxcl73KdDKBLkQTxj1OjaA==
+  dependencies:
+    bson "^5.0.0"
+    mongodb-connection-string-url "^2.6.0"
+    socks "^2.7.1"
+  optionalDependencies:
     saslprep "^1.0.3"
 
 mongoose@^6.8.3:

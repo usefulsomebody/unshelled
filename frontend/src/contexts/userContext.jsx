@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { createContext, useContext, useEffect, useReducer, useState } from 'react';
+import React, { createContext, useContext, useEffect, useReducer, useRef, useState } from 'react';
 
 const initialState = {
   error: null
@@ -45,19 +45,25 @@ export function UserContextProvider({ children }) {
   const stateAndDispatch = useReducer(AuthReducer, initialState);
   const [state, dispatch] = stateAndDispatch;
   const [user, setUser] = useState(null);
-  const [ready, setReady] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const dataFetchedRef = useRef(false);
 
+  const fetchData = () => {
+    axios.get('/account/fetch').then(({ data }) => {
+      setUser(data);
+      setLoading(false);
+    });
+  };
   useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
     if (!user) {
-      axios.get('/account/fetch').then(({ data }) => {
-        setUser(data);
-        setReady(true);
-      });
+      fetchData();
     }
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, ready, error: state.error, dispatch }}>
+    <UserContext.Provider value={{ user, setUser, loading, error: state.error, dispatch }}>
       {children}
     </UserContext.Provider>
   );

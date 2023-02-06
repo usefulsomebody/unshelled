@@ -66,7 +66,8 @@ export default function LoginPage() {
           />
           <button
             className="primary bg-orange-500 hover:bg-orange-600 mt-4"
-            disabled={formDisabled}>
+            disabled={formDisabled}
+          >
             Login
           </button>
         </form>

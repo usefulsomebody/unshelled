@@ -21,13 +21,13 @@ function App() {
     <UserContextProvider>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/login" element={<AuthRoute />}>
-            <Route index element={<LoginPage />} />
-          </Route>
           <Route path="/" element={<ProtectedRoute />}>
             <Route index element={<OrderListPage />} />
             <Route path="/orders/:id" element={<OrderPage />} />
             <Route path="/account" element={<AccountPage />} />
+          </Route>
+          <Route path="/login" element={<AuthRoute />}>
+            <Route index element={<LoginPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

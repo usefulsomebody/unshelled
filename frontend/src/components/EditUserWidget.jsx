@@ -16,7 +16,11 @@ export default function EditUserWidget() {
         seller_city: city,
         seller_state: state
       });
-      setUser(response.data);
+      setUser({
+        seller_city: response.data.seller_city,
+        seller_state: response.data.seller_state,
+        ...user
+      });
       toast.success('Account updated');
     } catch (err) {
       toast.error(err.message);

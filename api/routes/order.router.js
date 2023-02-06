@@ -1,9 +1,10 @@
 import { Router } from 'express';
+
 import {
-  updateOrder,
-  fetchOrders,
   deleteOrder,
+  fetchOrders,
   getOrder,
+  updateOrder,
 } from '../controllers/order.js';
 import { verifySeller } from '../utils/verifyToken.js';
 

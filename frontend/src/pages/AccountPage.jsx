@@ -4,9 +4,9 @@ import AccountNav from '../components/AccountNav';
 import EditUserWidget from '../components/EditUserWidget';
 
 export default function AccountPage() {
-  const { ready, user } = useAuth();
+  const { loading, user } = useAuth();
 
-  if (!ready) {
+  if (loading) {
     return 'Loading...';
   }
   return (

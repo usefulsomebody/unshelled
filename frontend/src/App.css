@@ -1,6 +1,6 @@
 .flex-table-item.is-order .code {
   font-size: 15px !important;
-  color: #063941 !important;
+  color: #ff6304 !important;
 }
 
 .flex-table .flex-table-header {
@@ -337,7 +337,7 @@
 }
 
 .flex-table .flex-table-item .flex-table-cell .dot-levels .dot.active {
-  color: #063941;
+  color: #ff6304;
 }
 
 .list-view-item {
@@ -372,21 +372,18 @@
   height: 16px;
   width: 16px;
   stroke-width: 3px;
-  stroke: #063941;
+  stroke: #ff6304;
 }
 
 .flex-pagination .pagination-list li .pagination-link {
   background: #fff;
-  font-size: 0.9em;
+  padding: 10px;
 }
 
 .flex-pagination .pagination-list li .pagination-link.is-current {
-  background: #063941;
-  border-color: #063941;
-  -webkit-box-shadow: 0 14px 26px -12px rgba(5, 57, 65, 0.31), 0 4px 23px 0px rgba(5, 57, 65, 0.2),
-    0 8px 10px -5px rgba(5, 57, 65, 0.1);
-  box-shadow: 0 14px 26px -12px rgba(5, 57, 65, 0.31), 0 4px 23px 0px rgba(5, 57, 65, 0.2),
-    0 8px 10px -5px rgba(5, 57, 65, 0.1);
+  background: #ff6304;
+  border-color: #ff6304;
+  color: #fff
 }
 
 .flex-table-wrapper {
@@ -439,17 +436,20 @@
 .placeload-wrap .placeload-avatar.is-rounded-full {
   border-radius: 50%;
 }
+
 .placeload-wrap .placeload-avatar.is-small {
   width: 32px;
   min-width: 32px;
   height: 32px;
 }
+
 .placeload-wrap .placeload-avatar {
   display: block;
   width: 40px;
   min-width: 40px;
   height: 40px;
 }
+
 .loads {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -491,6 +491,7 @@
 .mb-4 {
   margin-bottom: 1rem !important;
 }
+
 .mx-2 {
   margin-left: 0.5rem !important;
   margin-right: 0.5rem !important;
@@ -503,6 +504,7 @@
 .action {
   margin-left: auto;
 }
+
 .action button,
 .action a {
   display: -webkit-box;
@@ -525,6 +527,7 @@
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
+
 .action button svg,
 .action a svg {
   height: 18px;
@@ -534,4 +537,153 @@
 
 .item-name {
   color: #747373;
+}
+
+.circular-loader {
+  text-align: center;
+  padding: 12rem;
+}
+
+.has-loader.has-loader-active {
+  overflow: hidden;
+}
+
+.has-loader {
+  position: relative;
+}
+
+.is-relative {
+  position: relative !important;
+}
+
+@-webkit-keyframes spinAroundLoader {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spinAroundLoader {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.loader {
+  -webkit-animation: spinAroundLoader 500ms infinite linear;
+  animation: spinAroundLoader 500ms infinite linear;
+  border: 1px solid #ff6304;
+  border-radius: 9999px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: '';
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+}
+
+.has-loader .h-loader-wrapper .loader.is-large {
+  height: 5rem;
+  width: 5rem;
+}
+
+.has-loader .h-loader-wrapper .loader {
+  height: 3rem;
+  width: 3rem;
+}
+
+.has-loader.is-relative .h-loader-wrapper {
+  position: relative;
+}
+
+.has-loader.has-loader-active .h-loader-wrapper {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.has-loader .h-loader-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  z-index: 5;
+}
+
+.pagination {
+    text-align: center;
+	width: calc(100% - 20px);
+	margin: 0 10px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+}
+
+.pagination, .pagination-list {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pagination {
+    font-size: 1rem;
+    margin: -0.25rem;
+}
+
+.flex-pagination {
+    padding: 12px 0;
+}
+
+.pagination li {
+    list-style-type: none;
+    float: left;
+}
+
+.pagination li a {
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.pagination li.active {
+    background: #ff6304 !important;
+}
+
+.pagination li.active a {
+    cursor: default;
+    color: #fcfcfc !important;
 }
