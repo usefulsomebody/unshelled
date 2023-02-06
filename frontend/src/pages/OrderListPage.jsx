@@ -13,17 +13,19 @@ export default function OrderListPage() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(null);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(20);
+  const [offset, setOffset] = useState(0);
   console.log(page);
 
   const [loading, setLoading] = useState(false);
   const fetchOrders = async () => {
     setLoading(true);
     try {
-      await axios.get(`/order_items?page=${page}&limit=${limit}&offset=1`).then((res) => {
+      await axios.get(`/order_items?page=${page}&limit=${limit}&offset=${offset}`).then((res) => {
         setOrders(res.data.data);
         setTotal(res.data.total);
         setLimit(res.data.limit);
+        setOffset(res.data.offset);
         setLoading(false);
       });
     } catch (err) {

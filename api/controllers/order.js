@@ -32,7 +32,7 @@ export const fetchOrders = async (req, res, next) => {
   const offset = req.query;
   let limit = parseInt(req.query.limit);
   if (!page) {page = 1;}
-  if (!limit) {limit = 10;}
+  if (!limit) {limit = 20;}
   let skip = +offset || 0;
   if (skip < 1) {
     skip = 0;
