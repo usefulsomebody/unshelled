@@ -14,9 +14,9 @@ yarn install
 
 ### Run apps
 
-Use the following command for each folder respectively:
+Use the following command on each app respectively:
 
 ```sh
-api - yarn start
-frontend - yarn dev
+Api - yarn start
+Frontend - yarn dev
 ```
