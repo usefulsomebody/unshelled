@@ -14,7 +14,7 @@ yarn install
 
 ### Run apps
 
-Use the following command on each app respectively:
+Use the following command on each app:
 
 ```sh
 Api - yarn start
