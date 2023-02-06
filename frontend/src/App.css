@@ -383,7 +383,7 @@
 .flex-pagination .pagination-list li .pagination-link.is-current {
   background: #ff6304;
   border-color: #ff6304;
-  color: #fff
+  color: #fff;
 }
 
 .flex-table-wrapper {
@@ -637,53 +637,54 @@
 }
 
 .pagination {
-    text-align: center;
-	width: calc(100% - 20px);
-	margin: 0 10px;
-	height: 45px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 100;
+  text-align: center;
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
 
-.pagination, .pagination-list {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    text-align: center;
+.pagination,
+.pagination-list {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .pagination {
-    font-size: 1rem;
-    margin: -0.25rem;
+  font-size: 1rem;
+  margin: -0.25rem;
 }
 
 .flex-pagination {
-    padding: 12px 0;
+  padding: 12px 0;
 }
 
 .pagination li {
-    list-style-type: none;
-    float: left;
+  list-style-type: none;
+  float: left;
 }
 
 .pagination li a {
-    padding: 0 5px;
-    cursor: pointer;
+  padding: 0 5px;
+  cursor: pointer;
 }
 
 .pagination li.active {
-    background: #ff6304 !important;
+  background: #ff6304 !important;
 }
 
 .pagination li.active a {
-    cursor: default;
-    color: #fcfcfc !important;
+  cursor: default;
+  color: #fcfcfc !important;
 }

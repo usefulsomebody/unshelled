@@ -8,13 +8,13 @@ import Pagination from '../components/Pagination';
 import AccountNav from '../components/AccountNav';
 
 export default function OrderListPage() {
-	const dataFetchedRef = useRef(false);
-	const [orders, setOrders] = useState([]);
-	const [error, setError] = useState(false);
-	const [page, setPage] = useState(1);
-	const [total, setTotal] = useState(null);
-	const [limit, setLimit] = useState(10);
-	console.log(page);
+  const dataFetchedRef = useRef(false);
+  const [orders, setOrders] = useState([]);
+  const [error, setError] = useState(false);
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(null);
+  const [limit, setLimit] = useState(10);
+  console.log(page);
 
   const [loading, setLoading] = useState(false);
   const fetchOrders = async () => {
@@ -33,7 +33,7 @@ export default function OrderListPage() {
     }
   };
   useEffect(() => {
-	if (dataFetchedRef.current) return;
+    if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
     fetchOrders();
   }, [page]);
@@ -111,12 +111,12 @@ export default function OrderListPage() {
                       <OrderListItem order={order} handleDelete={() => handleDelete(order._id)} />
                     </div>
                   ))}
-				  <Pagination
-						page={page}
-						limit={limit ? limit : 0}
-						total={total ? total : 0}
-						setPage={(page) => setPage(page)}
-					/>
+                  <Pagination
+                    page={page}
+                    limit={limit ? limit : 0}
+                    total={total ? total : 0}
+                    setPage={(page) => setPage(page)}
+                  />
                 </>
               ) : (
                 <div className="mt-4 grow flex items-center justify-around">

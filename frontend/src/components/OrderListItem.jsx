@@ -13,7 +13,9 @@ export default function OrderListItem({ order, handleDelete }) {
       <div className="flex-table-cell">
         <span className="light-text">${order.price}</span>
       </div>
-      <div className="flex-table-cell">{format(new Date(order.shipping_limit_date), 'yyyy-MM-dd')}</div>
+      <div className="flex-table-cell">
+        {format(new Date(order.shipping_limit_date), 'yyyy-MM-dd')}
+      </div>
       <div className="flex-table-cell cell-end action">
         <Link to={`/orders/${order._id}`} title="Modify">
           <svg
