@@ -3,12 +3,12 @@
 To clone the repository, use the following commands:
 
 ```sh
-git clone https://github.com/usefulsomebody/unshelled-task.git
+git clone https://github.com/usefulsomebody/unshelled.git
 
-cd unshelled-task/api
+cd unshelled/api
 yarn install
 
-cd unshelled-task/frontend
+cd unshelled/frontend
 yarn install
 ```
 
